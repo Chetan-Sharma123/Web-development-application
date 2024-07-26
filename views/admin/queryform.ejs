@@ -1,0 +1,28 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h2>Query Form</h2>
+                <%if(message !==''){%>
+                <div class="alert alert-success">
+                    <p><%=message%></p>
+                </div>
+                <%}%>
+                
+                <form action="" method="post">
+                    <label for="">To</label><input type="text" name="emailto" id="" class="form-control" value="<%=email%>">
+                    <label for="">From</label><input type="text" name="emailfrom" id="" class="form-control"value="nodetest73@gmail.com">
+                    <label for="">Subject</label><input type="text" name="sub" id="" class="form-control" value="RE:<%=query%>">
+                    <label for="">Body</label><textarea name="emailbody" id="" class="form-control"></textarea>
+                    <button type="submit" class="btn btn-success form-control mt-3">Send Email</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,72 @@
+#login{
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+#login .btn{
+    margin-top: 10px;
+}
+#login h2{
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+
+#header{
+    background-color:#aad6ec;
+    padding: 10px 0px;
+    text-transform: uppercase;
+}
+#header .btn{
+    margin-top: 4px;
+    padding: 6px;
+    background-color:#7878f1!important;
+    border: none;
+    float: right;
+}
+#header .btn:hover{
+    background-color:#151269 !important;
+}
+
+#mid .bi-trash3{
+    color: red;
+    font-size: 25px;
+}
+#mid .bi-pencil{
+    color: green;
+    font-size: 25px;
+}
+
+#mid #button{
+    float: right;
+}
+#mid h2{
+    text-align: center;
+    margin-top: 20px;
+    color: #7878f1;
+}
+
+#mid h5{
+    text-align: center;
+}
+#mid h3{
+    text-align: center;
+    margin-top: 20px;
+    color: #7878f1;
+    font-weight: bolder;
+}
+#mid .bi-x-circle-fill{
+    color: red;
+    font-size: 25px;
+}
+#mid .bi-pencil-fill{
+    color: green;
+    font-size: 25px;
+}
+
+#mid span{
+    font-size: 35px;
+    color: rgb(99, 99, 244);
+}

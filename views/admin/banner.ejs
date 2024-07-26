@@ -1,0 +1,69 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h2>BANNER MANAGEMENT DESHBOARD</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <th>ALL RECORDS: <span><%=allrecords%></span></th>
+                        <th>PUBLISHED: <span><%=published%></span></th>
+                        <th>UNPUBLISHED: <span><%=unpublished%></span></th>
+                    </thead>
+                </table>
+                <h2>Banner Management</h2>
+                <%if(message !=='message'){%>
+                    <div class="alert alert-success">
+                        <h6><%=message%></h6>
+                    </div>                    
+                <%}%>
+                
+                <a href="/admin/bannerform"><button class="btn btn-primary" id="button">ADD NEW RECORD</button></a>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>S.NO.</th>
+                            <th>Title</th>
+                            <th>Descriptions</th>
+                            <th>Image</th>
+                            <th>More Details</th>
+                            <th>Status</th>
+                            <th>Create Date</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% bannerdata.forEach((val,key)=>{%>
+                            <tr>
+                                <td><%=key+1%></td>
+                                <td><%=val.title%></td>
+                                <td><%=val.desc%></td>
+                                <td><img src="../../upload/<%=val.img%>" alt="" style="width: 70px;"></td>
+                                <td><%=val.moreDetails%></td>
+                                <td><a href="/admin/updatestatus/<%=val.status%>/<%=val.id%>"><button class="btn btn-success"><%=val.status%></button></a></td>
+                                <td><%=val.postedDate%></td>
+                                <td><a href="/admin/updatebanner/<%=val.id%>"><i class="bi bi-pencil"></i></a></td>
+                                <td><a href="/admin/deletebanner/<%=val.id%>/<%=val.img%>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="bi bi-trash3"></i></a></td>
+                            </tr>    
+                            <%})%>
+                            <%if(bannerdata.length==0){%>
+                                <tr>
+                                    <td colspan="9">
+                                        <h5>NO RECORD FOUND</h5>
+    
+                                    </td>
+                                </tr>
+                                <%}%>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h2>Add Services</h2>
+                <%if(!message==''){%>
+                <div class="alert alert-danger">
+                    <%=message%>
+                </div> 
+                <%}%>
+                
+                <form action="" method="post" enctype="multipart/form-data">
+                 <label for="">Service Image</label><input type="file" name="img" id="" class="form-control"> 
+                <label for="">Service Name</label><input type="text" name="servicename" id="" class="form-control">
+                <label for="">Descriptions</label><input type="text" name="desc" id="" class="form-control">
+                <label for="">more Descriptions</label><textarea name="moredesc" id="" class="form-control"></textarea>
+                <button type="submit" class="btn btn-primary mt-3">ADD</button>
+                <button type="reset" class="btn btn-warning mt-3">Cencel</button>
+
+            </form>

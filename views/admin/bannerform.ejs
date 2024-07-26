@@ -1,0 +1,30 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+
+                <h2>New Banner Add</h2>
+                <% if(!message==''){%>
+                    <div class="alert alert-danger">
+                        <%=message%>
+                    </div>
+                    <%}%>
+                
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="">Banner Title</label><input type="text" name="title" id="" class="form-control">
+                    <label for="">Descriptions</label><input type="text" name="desc" id=""class="form-control">
+                    <label for="">More Details</label><textarea name="moreDetail" id="" class="form-control" ></textarea>
+                    <label for="">Banner Image</label><input type="file" name="img" id="" class="form-control">
+                    <button type="reset" class="btn btn-danger mt-3">Cencel</button>
+                    <button type="submit" class="btn btn-primary mt-3">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

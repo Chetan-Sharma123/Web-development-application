@@ -1,0 +1,33 @@
+<%-include('../partials/headuser.ejs')%>
+<body>
+    <%-include('../partials/headeruser.ejs')%>
+    
+<section id="mid">
+    <div class="container">
+        <h3 style="text-align: center;">YOUR REVIEW</h3>
+        <div class="row">
+            
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <%if(!message==''){%>
+                <div class="alert alert-danger">
+                    <%=message%>
+                </div>
+                <%}%>
+                
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="">Your name</label><input type="text" name="name" id="" class="form-control">
+                    <label for="">Email</label><input type="email" name="email" id="" class="form-control">
+                    <label for="">Your Image</label><input type="file" name="img" id="" class="form-control">
+                    <label for="">Your Testimonial </label><textarea name="Testimonial" id="" class="form-control"></textarea>
+                    <button class="btn btn-success mt-3 form-control">SUBMIT</button>
+
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+       
+        </div>
+    </div>
+</section>
+</body>
+</html>

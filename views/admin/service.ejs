@@ -1,0 +1,67 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h2>SERVICE MANAGEMENT DESHBOARD</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ALL RECORDS: <span><%=allrecords%></span></th>
+                            <th>PUBLISHED: <span><%=published%></span></th>
+                            <th>UNPUBLISHED: <span><%=unpublished%></span></th>
+                        </tr>
+                    </thead>
+                </table>
+                <h2>Service Management</h2>
+                <%if(delmessage !=='message'){%>
+                    <div class="alert alert-success">
+                        <h6><%=delmessage%></h6>
+                    </div>                    
+                <%}%>
+                <a href="/admin/serviceform"><button class="btn btn-primary" id="button">ADD NEW SERVICE</button></a>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>S.NO.</th>
+                            <th>Image</th>
+                            <th>Service Name</th>
+                            <th>Descriptions</th>
+                            <th>More Descriptions</th>
+                            <th>Create Date</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%data.forEach((val,key)=>{%>
+                            <tr>
+                                <td><%=key+1%></td>
+                            
+                                <td><img src="../../upload/<%=val.img%>" alt="" style="width: 90px;"></td>
+                                <td><%=val.serviceName%></td>
+                                <td><%=val.desc%></td>
+                                <td><%=val.moreDes%></td>
+                                <td><a href="/admin/servicestatusupdate/<%=val.id%>/<%=val.status%>"><button type="submit" class="btn btn-success"><%=val.status%></button></a></td>
+                                <td><%=val.createDate%></td>
+                                <td><a href="/admin/updateservice/<%=val.id%>"><i class="bi bi-pencil"></i></a></td>
+                                <td><a href="/admin/deleteservice/<%=val.id%>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="bi bi-trash3"></i></a></td>
+                            </tr>
+                        <%})%>
+                        <% if(data.length==0){%>
+                        <tr>
+                            <td colspan="9"><h5>NO RECORD FOUND</h5></td>
+                        </tr>
+                        <%}%>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

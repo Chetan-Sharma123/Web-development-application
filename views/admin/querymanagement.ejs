@@ -1,0 +1,52 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h3>QUERY MANAGEMENT</h3>
+                <%if(message !=='message'){%>
+                    <div class="alert alert-success">
+                        <h4><%=message%></h4>
+                    </div>                    
+                <%}%>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Query</th>
+                            <th>Status</th>
+                            <th>Post Date</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%allquerydata.forEach((val,key)=>{%>
+                            <tr>
+                                <td><%=val.name%></td>
+                                <td><%=val.email%></td>
+                                <td><%=val.query%></td>
+                                <%if(val.status=='Replied'){%>
+                                    
+                                <td><a href="/admin/queryform/<%=val.email%>/<%=val.query%>/<%=val.id%>"><button disabled><%=val.status%></button></a></td>
+                                <%}else{%>
+                                <td><a href="/admin/queryform/<%=val.email%>/<%=val.query%>/<%=val.id%>"><button class="btn btn-success"><%=val.status%></button></a></td>
+                                <%}%>
+                                <td><%=val.date%></td>
+                                <
+                                <td><a href="/admin/querymanagementdelete/<%=val.id%>"onclick="return confirm('Are you sure you want to delete this item?');"><i class="bi bi-x-circle-fill"></i></i></a></td>
+                            </tr>
+                        <%})%>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

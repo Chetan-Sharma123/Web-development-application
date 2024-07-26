@@ -1,0 +1,59 @@
+<%-include('../../partials/admin/head.ejs')%>
+<body>
+    <%-include('../../partials/admin/header.ejs')%>
+<section id="mid">
+    <div class="container">
+        <div class="row">
+            <%-include('../../partials/admin/left.ejs')%>
+            <div class="col-md-9">
+                <h2>TESTIONMAL DESHBOARD</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ALL RECORDS: <span><%=allrecords%></span></th>
+                            <th>PUBLISHED: <span><%=published%></span></th>
+                            <th>UNPUBLISHED: <span><%=unpublished%></span></th>
+                        </tr>
+                    </thead>
+                </table>
+                <h2>Testionmal Management</h2>
+                <%if(message !=='message'){%>
+                    <div class="alert alert-success">
+                        <h6><%=message%></h6>
+                    </div>                    
+                <%}%>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Testionmals</th>
+                            <th>Image</th>
+                            <th>Create Date</th>
+                            <th>Status</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%data.forEach((val,key)=>{%>
+                            <tr>
+                                <td><%=val.name%></td>
+                                <td><%=val.email%></td>
+                                <td><%=val.testimonials%></td>
+                                <td><img src="../../upload/<%=val.img%>" alt="" style="width: 80px;"></td>
+                                <td><%=val.createDate%></td>
+                                <td><a href="/admin//testupdatestatus/<%=val.id%>/<%=val.status%>"><button class="btn btn-success"><%=val.status%></button></a></td>
+                                <td><a href="/admin/updatetestform/<%=val.id%>"><i class="bi bi-pencil"></i></a></td>
+                                <td><a href="/admin/testdelete/<%=val.id%>"onclick="return confirm('Are you sure you want to delete this item?');"><i class="bi bi-trash3"></i></a></td>
+                            </tr>
+                        <%})%>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<%-include('../partials/headuser.ejs')%>
+<body>  
+  <%-include('../partials/headeruser.ejs')%>
+            <section id="banner">
+              
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2 class="text-md-start text-end"><%=data.title%></h2>
+                    <p><%=data.desc%></p>
+                      <p id="bannertext"><a href="/moredeatails"><i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                  </div>
+                  <div class="col-md-4">
+                    <img src="../upload/<%=data.img%>" class="img-fluid d-flex mx-auto" alt="" id="banner-img">
+                  </div>
+                </div>
+              </div>
+              <img src="media/border1.png" alt="">
+            </section>
+            <section id="card">
+              <div class="container">
+                  <div class="row">
+                      <h2 style="text-align: center;">Services</h2>
+                    <%servicedata.forEach((val,key)=>{%>
+                      <div class="col-md-3">
+                          <div class="card">
+                              <div class="card-body">
+                                <img src="../upload/<%=val.img%>" class="img-fluid" alt="">
+                                  <h5><%=val.serviceName%></h5>
+                                  <p><%=val.desc%></p>
+                                  <p id="bannertext"><a href="/servicemoredeatails/<%=val.id%>"><i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                              </div>
+                            </div>
+                      </div>
+                      <%})%>
+                  </div>
+              </div>
+          </section>
+          <section id="items">
+              <div class="container">
+                <div class="row d-flex">
+                  <h2 style="text-align: center; margin: 50px; font-size: 45px; color: green;">Testimonials</h2>
+                  <%testdata.forEach((val,key)=>{%>
+                    <div class="col-md-3">
+                      <div class="icon">
+                        <p><i class="bi bi-quote"></i><%=val.testimonials%><i class="bi bi-quote"></i></p>
+                        <img src="../upload/<%=val.img%>" alt="" class="img-fluid ">
+                       <h3><%=val.name%></h3>
+                      </div>
+                    </div>
+                  <%})%>
+                </div>
+              </div>
+            </section>
+          
+
+
+
+            <%-include('../partials/footeruser.ejs')%>  
+</body>
+
+</html>
